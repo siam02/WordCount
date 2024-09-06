@@ -10,3 +10,10 @@ function wordCount() {
     document.getElementById("char").textContent = charCount;
     document.getElementById("sentence").textContent = sentenceCount;
 }
+
+function clearText() {
+    document.getElementById("text").value = "";
+    document.getElementById("word").textContent = "";
+    document.getElementById("char").textContent = "";
+    document.getElementById("sentence").textContent = "";
+}
