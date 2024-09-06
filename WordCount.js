@@ -11,7 +11,7 @@ function wordCount() {
     document.getElementById("sentence").textContent = sentenceCount;
 }
 
-function clearText() {
+function ClearText() {
     document.getElementById("text").value = "";
     document.getElementById("word").textContent = "";
     document.getElementById("char").textContent = "";
