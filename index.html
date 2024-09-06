@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <main>
+        <section class="mt-8">
+            <div class="w-1/2 m-auto">
+                <div class="flex gap-2">
+                    <h3  class="text-3xl font-bold">Word Count:</h3>
+                    <p id="word" class="text-3xl font-bold"></p>
+                </div>
+                <div class="flex gap-2">
+                    <h3 class="text-3xl font-bold">Character Count:</h3>
+                    <p id="char" class="text-3xl font-bold"></p>
+                </div>
+                <div class="flex gap-2">
+                    <h3 class="text-3xl font-bold">Sentence Count:</h3>
+                    <p id="sentence" class="text-3xl font-bold"></p>
+                </div>
+                
+                
+            </div>
+           <div class="text-center mt-5">
+               <textarea name="" id="text" cols="60" rows="10" class=" w-1/2 p-2 border-2 border-gray-200 rounded-lg shadow-md"></textarea>
+           </div>
+           <div class="text-center">
+           <button onclick="wordCount()" class="mt-5 px-6 py-4 bg-blue-500 text-white rounded-md text-2xl">Count</button>
+           </div>
+        </section>
+        
+    </main>
+    <script src="WordCount.js"></script>
+</body>
+</html>
