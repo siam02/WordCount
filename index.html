@@ -1,41 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>WordCounter</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
+
 <body>
     <main>
-        <section class="mt-24 px-5 py-4">
-            <div class="lg:w-1/2 m-auto">
-                <div class="flex gap-2">
-                    <h3  class="text-3xl font-bold">Word Count:</h3>
-                    <p id="word" class="text-3xl font-bold"></p>
-                </div>
-                <div class="flex gap-2">
-                    <h3 class="text-3xl font-bold">Character Count:</h3>
-                    <p id="char" class="text-3xl font-bold"></p>
-                </div>
-                <div class="flex gap-2">
-                    <h3 class="text-3xl font-bold">Sentence Count:</h3>
-                    <p id="sentence" class="text-3xl font-bold"></p>
-                </div>
-                
-                
+        <section class="lg:flex flex flex-col lg:flex-row">
+            <div class="lg:w-2/3  p-4 bg-blue-400">
+                <textarea name="" id="text" cols="50" rows="20" placeholder="Enter Text Here"
+                    class="w-full p-6  border-t-4 border-yellow-500 "></textarea>
+
+                <p class="text-blue-900 bg-slate-100 p-4"><span class="font-bold">Word Counter -</span>Count characters,
+                    words, sentences, paragraph and pages. <a href="" class="underline">Learn more</a></p>
             </div>
-           <div class="text-center mt-5 ">
-               <textarea name="" rows="10" id="text" class="w-full lg:w-1/2 p-2 border-2 border-gray-300 rounded-lg shadow-lg"></textarea>
-           </div>
-           <div class="text-center flex gap-4 items-center justify-center">
-           <button onclick="wordCount()" class="mt-5 px-6 py-4 bg-blue-500 text-white rounded-md text-2xl">Count</button>
-           <button onclick="ClearText()" class="mt-5 px-6 py-4 bg-red-500 text-white rounded-md text-2xl">Clear</button>
-           </div>
-           
+            <div class="flex flex-col lg:w-1/3  bg-blue-800 p-4">
+                <div class="flex gap-4 p-4 bg-slate-100 border-t-4 border-pink-700 rounded-sm">
+                    <div class="w-1/2 text-blue-900 font-bold">
+                        <h3>WORDS</h3>
+                        <p class="text-4xl font-bold"><span id="word">0</span></p>
+                    </div>
+                    <div class="w-1/2  text-blue-900 font-bold">
+                        <h3>CHARACTERS</h3>
+                        <p class="text-4xl font-bold"><span id="char">0</span></p>
+                    </div>
+
+                </div>
+                <div class=" bg-slate-100 border-t-4 border-purple-700 rounded-sm mt-6">
+                    <div
+                    class="flex  justify-between items-center px-4 py-4">
+                    <div>
+                        <h3 class="text-blue-900 font-bold">KEYWORD DENSITY</h3>
+                    </div>
+
+
+                    <div class="join">
+                        <input class="join-item btn btn-square border-2 border-blue-100 " type="radio" name="options"
+                            aria-label="Top" />
+                        <input class="join-item btn btn-square border-2 border-blue-100" type="radio" name="options"
+                            aria-label="1x" />
+                        <input class="join-item btn btn-square border-2 border-blue-100" type="radio" name="options"
+                            aria-label="2x" />
+                        <input class="join-item btn btn-square border-2 border-blue-100" type="radio" name="options"
+                            aria-label="3x" />
+
+                    </div>
+
+
+
+
+                </div>
+                <textarea name="" id="" class="w-full p-6" rows="10"></textarea>
+                </div>
+              
+            </div>
         </section>
-        
     </main>
     <script src="WordCount.js"></script>
 </body>
+
 </html>
