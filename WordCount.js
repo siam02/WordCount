@@ -27,6 +27,12 @@ function wordCount() {
   document.getElementById("sentence").textContent = sentenceCount;
   document.getElementById("page").textContent = pageCount;
 
+
+  if (Textarea.trim() === "") {
+    Clear(); 
+    return; 
+  }
+
   // word density
 
   const keywordMap = {};
@@ -51,6 +57,7 @@ function KeywordList(keywords, title) {
   keywordResultList.appendChild(titleItem);
 
   keywordResultList.innerHTML = '';
+ 
 
   if (Array.isArray(keywords)) {
     keywords.forEach(keyword => {
@@ -62,7 +69,13 @@ function KeywordList(keywords, title) {
 }
 
 
+function Clear() {
+  const keywordResultList = document.getElementById("keyword-density");
+  keywordResultList.innerHTML = '';
+}
+
 function Top() {
+  
   KeywordList([topKeyword]);
 
 }
