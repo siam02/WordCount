@@ -45,22 +45,18 @@
                         <p class="text-4xl font-bold"><span id="page">0</span></p>
                     </div>
                 </div>
-                <div class=" bg-slate-100 border-t-4 border-purple-700 rounded-sm mt-6">
+                <div class=" bg-slate-100 border-t-4 border-purple-700 rounded-sm mt-6 h-[390px] lg:h-auto">
                     <div class="flex  justify-between items-center px-4 py-4">
                         <div>
                             <h3 class="text-blue-900 font-bold">KEYWORD DENSITY</h3>
                         </div>
     
     
-                        <div class="join">
-                            <input class="join-item btn btn-square border-2 border-blue-100 " type="radio" name="options"
-                                aria-label="Top" />
-                            <input class="join-item btn btn-square border-2 border-blue-100" type="radio" name="options"
-                                aria-label="1x" />
-                            <input class="join-item btn btn-square border-2 border-blue-100" type="radio" name="options"
-                                aria-label="2x" />
-                            <input class="join-item btn btn-square border-2 border-blue-100" type="radio" name="options"
-                                aria-label="3x" />
+                        <div class="flex ">
+                            <button onclick="Top()" class="btn border-2 border-blue-500">Top</button>
+                            <button onclick="OneX()" class="btn border-2 border-blue-500">1x</button>
+                            <button onclick="TwoX()" class="btn border-2 border-blue-500">2x</button>
+                            <button onclick="ThreeX()" class="btn border-2 border-blue-500">3x</button>
     
                         </div>
     
@@ -68,7 +64,12 @@
     
     
                     </div>
-                    <textarea name="" id="" class="w-full p-6" rows="10"></textarea>
+                    <div class="p-4 bg-white w-full h-[310px] overflow-y-auto">
+                        <ul id="keyword-density" class="w-full p-6 ">
+
+                        </ul>
+                    </div>
+                    
                 </div>
             
 
