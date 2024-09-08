@@ -44,17 +44,16 @@ function wordCount() {
 
 function updateKeywordList() {
   const keywordResultList = document.getElementById("keyword-density");
-  keywordResultList.innerHTML = ''; // Clear existing content
+  keywordResultList.innerHTML = ''; 
 
-  // Create and append top keyword list item
+  //  top keyword list 
   const topItem = document.createElement("li");
   topItem.textContent = `Top Keyword: ${topKeyword}`;
   keywordResultList.appendChild(topItem);
 
-  // Create an ordered list (numbered) for oneXKeywords, twoXKeywords, and threeXKeywords with a max of 10 items
   const maxItems = 10;
 
-  // Create and append oneXKeywords list
+  // oneXKeywords list
   if (oneXKeywords.length > 0) {
     const oneXTitle = document.createElement("li");
     oneXTitle.textContent = "Keywords appearing once:";
@@ -70,7 +69,7 @@ function updateKeywordList() {
     keywordResultList.appendChild(oneXList);
   }
 
-  // Create and append twoXKeywords list
+  // twoXKeywords list
   if (twoXKeywords.length > 0) {
     const twoXTitle = document.createElement("li");
     twoXTitle.textContent = "Keywords appearing twice:";
@@ -86,7 +85,7 @@ function updateKeywordList() {
     keywordResultList.appendChild(twoXList);
   }
 
-  // Create and append threeXKeywords list
+  // threeXKeywords list
   if (threeXKeywords.length > 0) {
     const threeXTitle = document.createElement("li");
     threeXTitle.textContent = "Keywords appearing three times:";
