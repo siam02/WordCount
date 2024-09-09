@@ -1,0 +1,25 @@
+.keyword-list{
+    list-style-type: none;
+    padding: 5px;
+    margin: 0;
+}
+
+.keyword-list li{
+    padding: 5px;
+    border-bottom: 1px solid #ccc;
+    display: flex;
+    justify-content: space-between;
+}
+
+.keyword-list li>span{
+    background-color: rgb(29 78 216 / var(--tw-bg-opacity));
+    color: #fff;
+    padding: 1px 10px;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.keyword-density-buttons .active{
+    background-color: blue;
+    color: white;
+}

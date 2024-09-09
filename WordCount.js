@@ -2,7 +2,17 @@ const TextArea = document.getElementById("text");
 
 TextArea.addEventListener("input", wordCount);
 
-let topKeyword = "";
+const keywordResultList = document.getElementById("keyword-density");
+const topWords = document.getElementById("topWords");
+topWords.addEventListener("click", Top);
+const oneXWords = document.getElementById("oneXWords");
+oneXWords.addEventListener("click", OneX);
+const twoXWords = document.getElementById("twoXWords");
+twoXWords.addEventListener("click", TwoX);
+const threeXWords = document.getElementById("threeXWords");
+threeXWords.addEventListener("click", ThreeX);
+
+let topKeywords = "";
 let oneXKeywords = [];
 let twoXKeywords = [];
 let threeXKeywords = [];
@@ -23,8 +33,8 @@ function wordCount() {
   document.getElementById("page").textContent = pageCount;
 
   if (Textarea.trim() === "") {
-    Clear(); 
-    return; 
+    Clear();
+    return;
   }
 
   // word density
@@ -34,75 +44,55 @@ function wordCount() {
   });
 
   const sortedKeywords = Object.entries(keywordMap).sort((a, b) => b[1] - a[1]);
-  topKeyword = sortedKeywords.length > 0 ? sortedKeywords[0][0] : "None";
-  oneXKeywords = sortedKeywords.filter(([_, count]) => count === 1).map(([word]) => word);
-  twoXKeywords = sortedKeywords.filter(([_, count]) => count === 2).map(([word]) => word);
-  threeXKeywords = sortedKeywords.filter(([_, count]) => count === 3).map(([word]) => word);
+  topKeywords = sortedKeywords.length > 0 ? sortedKeywords.sort((a, b) => b[1] - a[1]) : "";
+  oneXKeywords = sortedKeywords.filter(([_, count]) => count === 1);
+  twoXKeywords = sortedKeywords.filter(([_, count]) => count === 2);
+  threeXKeywords = sortedKeywords.filter(([_, count]) => count === 3);
 
-  updateKeywordList();
+  // updateKeywordList();
+  setActive(topWords);
+  KeywordList(topKeywords);
 }
 
-function updateKeywordList() {
-  const keywordResultList = document.getElementById("keyword-density");
-  keywordResultList.innerHTML = ''; 
 
-  //  top keyword list 
-  const topItem = document.createElement("li");
-  topItem.textContent = `Top Keyword: ${topKeyword}`;
-  keywordResultList.appendChild(topItem);
-
-  const maxItems = 10;
-
-  // oneXKeywords list
-  if (oneXKeywords.length > 0) {
-    const oneXTitle = document.createElement("li");
-    oneXTitle.textContent = "Keywords appearing once:";
-    oneXTitle.style.fontWeight = "bold";
-    keywordResultList.appendChild(oneXTitle);
-
-    const oneXList = document.createElement("ol");
-    oneXKeywords.slice(0, maxItems).forEach((keyword, index) => {
-      const listItem = document.createElement("li");
-      listItem.textContent = keyword;
-      oneXList.appendChild(listItem);
-    });
-    keywordResultList.appendChild(oneXList);
-  }
-
-  // twoXKeywords list
-  if (twoXKeywords.length > 0) {
-    const twoXTitle = document.createElement("li");
-    twoXTitle.textContent = "Keywords appearing twice:";
-    twoXTitle.style.fontWeight = "bold";
-    keywordResultList.appendChild(twoXTitle);
-
-    const twoXList = document.createElement("ol");
-    twoXKeywords.slice(0, maxItems).forEach((keyword, index) => {
-      const listItem = document.createElement("li");
-      listItem.textContent = keyword;
-      twoXList.appendChild(listItem);
-    });
-    keywordResultList.appendChild(twoXList);
-  }
-
-  // threeXKeywords list
-  if (threeXKeywords.length > 0) {
-    const threeXTitle = document.createElement("li");
-    threeXTitle.textContent = "Keywords appearing three times:";
-    threeXTitle.style.fontWeight = "bold";
-    keywordResultList.appendChild(threeXTitle);
-
-    const threeXList = document.createElement("ol");
-    threeXKeywords.slice(0, maxItems).forEach((keyword, index) => {
-      const listItem = document.createElement("li");
-      listItem.textContent = keyword;
-      threeXList.appendChild(listItem);
-    });
-    keywordResultList.appendChild(threeXList);
-  }
+function Top() {
+  setActive(topWords);
+  KeywordList(topKeywords);
+}
+function OneX() {
+  setActive(oneXWords);
+  KeywordList(oneXKeywords);
+}
+function TwoX() {
+  setActive(twoXWords);
+  KeywordList(twoXKeywords);
+}
+function ThreeX() {
+  setActive(threeXWords);
+  KeywordList(threeXKeywords);
 }
 
 function Clear() {
-  const keywordResultList = document.getElementById("keyword-density");
   keywordResultList.innerHTML = '';
+}
+
+function KeywordList(keywords) {
+
+  Clear();
+
+
+  if (Array.isArray(keywords)) {
+    keywords.slice(0, 6).forEach((keyword) => {
+      keywordResultList.innerHTML += `<li>${keyword[0]} <Span>${keyword[1]}</Span></li>`
+    });
+  }
+}
+
+function setActive(active){
+
+    const buttons = document.querySelectorAll(".keyword-density-buttons button");
+    buttons.forEach((button) => {
+        button.classList.remove("active");
+    });
+    active.classList.add("active");
 }
